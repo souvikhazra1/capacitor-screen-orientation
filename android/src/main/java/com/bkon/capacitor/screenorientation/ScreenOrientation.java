@@ -63,17 +63,20 @@ public class ScreenOrientation extends Plugin {
                 getBridge().getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
                 break;
         }
+        call.success();
 
     }
 
     @PluginMethod
     public void unlockScreenOrientation(PluginCall call) {
         getBridge().getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        call.success();
     }
 
     @PluginMethod
     public void rotateTo(PluginCall call) {
        Log.i("capacitor","rotateTo is not supported on Android");
+        call.reject("rotateTo is not supported on Android");
     }
 
     @Override
